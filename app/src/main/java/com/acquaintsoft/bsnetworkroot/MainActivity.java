@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             Token t = new Token();
             t.token = address;
             t.seed = seed;
-            Log.e("REsposne","Reposne = Token = "+t.token+"+==== SEED ==="+t.seed);
+            Log.e("Response","Response= Token = "+t.token+"+==== SEED ==="+t.seed);
 
         }
         catch (Exception e){
