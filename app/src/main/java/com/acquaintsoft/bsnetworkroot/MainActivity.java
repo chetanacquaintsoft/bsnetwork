@@ -1,8 +1,12 @@
 package com.acquaintsoft.bsnetworkroot;
 
 import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.acquaintsoft.bsnetwork.Account;
+import com.acquaintsoft.bsnetwork.PrivateKeyAccount;
+import com.acquaintsoft.bsnetwork.Token;
 import com.acquaintsoft.bsnetworkroot.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -10,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*try  {
+        try  {
 
 //         String seed = "health lazy lens fix dwarf salad breeze myself silly december endless rent faculty report beyond";
             String seed = PrivateKeyAccount.generateSeed();
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (Exception e){
             e.printStackTrace();
-        }*/
+        }
 
     }
 }
