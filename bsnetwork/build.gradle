@@ -1,15 +1,49 @@
+//apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+    }
+    gradle.projectsEvaluated {
+        /*tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:deprecation"
+        }*/
+        tasks.withType(Javadoc).all { enabled = false }
+    }
+
+}
+ext {
+    bintrayRepo = 'BSNetowrk' // your repo name
+    bintrayName = 'bsnetwork' // has to be same as your library module name
+    publishedGroupId = 'com.acquaintsoft.bsnetwork' // your module package name
+    libraryName = 'bsnetwork'
+    artifact = 'bsnetwork' // has to be same as your library module name
+    libraryDescription = 'BSNetwork library'
+    siteUrl = 'https://github.com/chetanacquaintsoft/bsnetwork'
+    gitUrl = 'https://github.com/chetanacquaintsoft/bsnetwork.git'
+    libraryVersion = '1.0.0'
+    developerId = 'chetan-ram'
+    developerName = 'Chetan'
+    developerEmail = 'chetan@acquaintsoft.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
 
-
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -21,6 +55,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+
+    }
 
 }
 
@@ -31,4 +70,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
 }
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'

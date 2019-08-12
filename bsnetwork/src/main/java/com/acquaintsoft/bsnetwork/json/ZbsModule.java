@@ -7,8 +7,8 @@ import com.acquaintsoft.bsnetwork.matcher.Order;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-public class ZbsModule extends SimpleModule {
-    public ZbsModule(byte chainId, ObjectMapper objectMapper) {
+class ZbsModule extends SimpleModule {
+    ZbsModule(byte chainId, ObjectMapper objectMapper) {
         addDeserializer(PublicKeyAccount.class, new PublicKeyAccountDeser(chainId));
         addDeserializer(ByteString.class, new ByteStringDeser());
         addDeserializer(Alias.class, new AliasDeser(chainId));

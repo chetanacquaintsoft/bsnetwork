@@ -3,7 +3,6 @@ package com.acquaintsoft.bsnetwork.json.deser;
 import com.acquaintsoft.bsnetwork.Transaction;
 import com.acquaintsoft.bsnetwork.transactions.*;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +20,7 @@ public class TransactionDeserializer extends StdDeserializer<Transaction> {
     }
 
     @Override
-    public Transaction deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public Transaction deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         TreeNode treeNode = jsonParser.getCodec().readTree(jsonParser);
         int type = objectMapper.treeToValue(treeNode.get("type"), Integer.class);
         int version = 1;
